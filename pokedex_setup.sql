@@ -1,4 +1,4 @@
-﻿-- SQL script to set up the Pokémon database for MySQL
+-- SQL script to set up the Pokémon database for MySQL
 
 -- Drop old tables if they exist to ensure a clean slate for Phase 0
 DROP TABLE IF EXISTS collections;
@@ -29,9 +29,6 @@ CREATE TABLE users (
   email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(255) NOT NULL,
   role VARCHAR(20) NOT NULL DEFAULT 'ROLE_USER',
-  profile_picture_url VARCHAR(500),
-  bio TEXT,
-  trainer_class VARCHAR(50),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -41,9 +38,6 @@ CREATE TABLE collections (
   user_id BIGINT NOT NULL,
   pokemon_id INT NOT NULL,
   nickname VARCHAR(50),
-  level INT DEFAULT 1,
-  experience INT DEFAULT 0,
-  is_favorite BOOLEAN DEFAULT FALSE,
   date_caught TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
   FOREIGN KEY (pokemon_id) REFERENCES pokemons(id) ON DELETE CASCADE,

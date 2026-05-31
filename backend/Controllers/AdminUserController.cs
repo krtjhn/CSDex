@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 // Import namespace: Oopdex.Api.Services
 using Oopdex.Api.Services;
-// Empty line
 
 // Define namespace: Oopdex.Api.Controllers
 namespace Oopdex.Api.Controllers
@@ -24,7 +23,6 @@ namespace Oopdex.Api.Controllers
     {
         // Execute line: private readonly IUserService _userService;
         private readonly IUserService _userService;
-// Empty line
 
         // Constructor for class: AdminUserController (Params: IUserService userService)
         public AdminUserController(IUserService userService)
@@ -34,7 +32,6 @@ namespace Oopdex.Api.Controllers
             _userService = userService;
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpGet]
         [HttpGet]
@@ -48,7 +45,6 @@ namespace Oopdex.Api.Controllers
             return Ok(users);
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpDelete("{id}")]
         [HttpDelete("{id}")]

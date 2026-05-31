@@ -12,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 // Import namespace: Oopdex.Api.Models
 using Oopdex.Api.Models;
-// Empty line
 
 // Define namespace: Oopdex.Api.Services
 namespace Oopdex.Api.Services
@@ -26,7 +25,6 @@ namespace Oopdex.Api.Services
         string GenerateToken(User user);
     // End of block scope
     }
-// Empty line
 
     // Define class JwtTokenService inheriting/implementing IJwtTokenService
     public class JwtTokenService : IJwtTokenService
@@ -34,7 +32,6 @@ namespace Oopdex.Api.Services
     {
         // Execute line: private readonly IConfiguration _configuration;
         private readonly IConfiguration _configuration;
-// Empty line
 
         // Constructor for class: JwtTokenService (Params: IConfiguration configuration)
         public JwtTokenService(IConfiguration configuration)
@@ -44,7 +41,6 @@ namespace Oopdex.Api.Services
             _configuration = configuration;
         // End of block scope
         }
-// Empty line
 
         // Define method: GenerateToken (Returns: string, Params: User user)
         public string GenerateToken(User user)
@@ -54,13 +50,11 @@ namespace Oopdex.Api.Services
             var secretKey = _configuration["Jwt:Secret"];
             // Variable declaration and assignment: expirationInMinutes = _configuration.GetValue<int>("Jwt:ExpirationInMinutes")
             var expirationInMinutes = _configuration.GetValue<int>("Jwt:ExpirationInMinutes");
-// Empty line
 
             // Variable declaration and assignment: securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             // Variable declaration and assignment: credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256)
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-// Empty line
 
             // Execute line: var claims = new[]
             var claims = new[]
@@ -76,7 +70,6 @@ namespace Oopdex.Api.Services
                 new Claim("username", user.Username)
             // Execute line: };
             };
-// Empty line
 
             // Execute line: var token = new JwtSecurityToken(
             var token = new JwtSecurityToken(
@@ -86,7 +79,6 @@ namespace Oopdex.Api.Services
                 expires: DateTime.Now.AddMinutes(expirationInMinutes),
                 // Execute line: signingCredentials: credentials);
                 signingCredentials: credentials);
-// Empty line
 
             // Return statement: return new JwtSecurityTokenHandler().WriteToken(token);
             return new JwtSecurityTokenHandler().WriteToken(token);

@@ -2,7 +2,6 @@
 using System.ComponentModel.DataAnnotations;
 // Import namespace: System.ComponentModel.DataAnnotations.Schema
 using System.ComponentModel.DataAnnotations.Schema;
-// Empty line
 
 // Define namespace: Oopdex.Api.Models
 namespace Oopdex.Api.Models
@@ -20,7 +19,6 @@ namespace Oopdex.Api.Models
         [Column("id")]
         // Property: Id (Type: int)
         public int Id { get; set; }
-// Empty line
 
         // Attribute annotation: [Required]
         [Required]
@@ -30,19 +28,16 @@ namespace Oopdex.Api.Models
         [Column("name")]
         // Property: Name (Type: string)
         public string Name { get; set; }
-// Empty line
 
         // Attribute annotation: [Column("height", TypeName = "decimal(10,2)")]
         [Column("height", TypeName = "decimal(10,2)")]
         // Property: Height (Type: decimal?)
         public decimal? Height { get; set; }
-// Empty line
 
         // Attribute annotation: [Column("weight", TypeName = "decimal(10,2)")]
         [Column("weight", TypeName = "decimal(10,2)")]
         // Property: Weight (Type: decimal?)
         public decimal? Weight { get; set; }
-// Empty line
 
         // Attribute annotation: [MaxLength(100)]
         [MaxLength(100)]
@@ -50,7 +45,6 @@ namespace Oopdex.Api.Models
         [Column("types")]
         // Property: Types (Type: string?)
         public string? Types { get; set; }
-// Empty line
 
         // Attribute annotation: [MaxLength(255)]
         [MaxLength(255)]
@@ -58,7 +52,6 @@ namespace Oopdex.Api.Models
         [Column("abilities")]
         // Property: Abilities (Type: string?)
         public string? Abilities { get; set; }
-// Empty line
 
         // Attribute annotation: [MaxLength(255)]
         [MaxLength(255)]
@@ -66,7 +59,6 @@ namespace Oopdex.Api.Models
         [Column("weaknesses")]
         // Property: Weaknesses (Type: string?)
         public string? Weaknesses { get; set; }
-// Empty line
 
         // Attribute annotation: [Range(1, 255)]
         [Range(1, 255)]
@@ -74,7 +66,6 @@ namespace Oopdex.Api.Models
         [Column("hp")]
         // Property: Hp (Type: int?)
         public int? Hp { get; set; }
-// Empty line
 
         // Attribute annotation: [Range(1, 255)]
         [Range(1, 255)]
@@ -82,7 +73,6 @@ namespace Oopdex.Api.Models
         [Column("attack")]
         // Property: Attack (Type: int?)
         public int? Attack { get; set; }
-// Empty line
 
         // Attribute annotation: [Range(1, 255)]
         [Range(1, 255)]
@@ -90,7 +80,6 @@ namespace Oopdex.Api.Models
         [Column("defense")]
         // Property: Defense (Type: int?)
         public int? Defense { get; set; }
-// Empty line
 
         // Attribute annotation: [Range(1, 255)]
         [Range(1, 255)]
@@ -98,7 +87,6 @@ namespace Oopdex.Api.Models
         [Column("special_attack")]
         // Property: SpecialAttack (Type: int?)
         public int? SpecialAttack { get; set; }
-// Empty line
 
         // Attribute annotation: [Range(1, 255)]
         [Range(1, 255)]
@@ -106,7 +94,6 @@ namespace Oopdex.Api.Models
         [Column("special_defense")]
         // Property: SpecialDefense (Type: int?)
         public int? SpecialDefense { get; set; }
-// Empty line
 
         // Attribute annotation: [Range(1, 255)]
         [Range(1, 255)]
@@ -114,19 +101,16 @@ namespace Oopdex.Api.Models
         [Column("speed")]
         // Property: Speed (Type: int?)
         public int? Speed { get; set; }
-// Empty line
 
         // Attribute annotation: [Column("is_deleted")]
         [Column("is_deleted")]
         // Property: IsDeleted (Type: bool, Default: false)
         public bool IsDeleted { get; set; } = false;
-// Empty line
 
         // Attribute annotation: [NotMapped]
         [NotMapped]
         // Execute line: public int PokedexNumber => Id;
         public int PokedexNumber => Id;
-// Empty line
 
         // Attribute annotation: [NotMapped]
         [NotMapped]
@@ -148,7 +132,6 @@ namespace Oopdex.Api.Models
             }
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [NotMapped]
         [NotMapped]
@@ -170,13 +153,11 @@ namespace Oopdex.Api.Models
             }
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [NotMapped]
         [NotMapped]
         // Execute line: public string? SpriteUrl => Id > 0 ? $"/assets/pokemon-3d...
         public string? SpriteUrl => Id > 0 ? $"/assets/pokemon-3d/{Id}.png" : null;
-// Empty line
 
         // Attribute annotation: [NotMapped]
         [NotMapped]

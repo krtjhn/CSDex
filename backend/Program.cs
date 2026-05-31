@@ -10,11 +10,9 @@ using Oopdex.Api.Data;
 using Oopdex.Api.Services;
 // Import namespace: System.Text
 using System.Text;
-// Empty line
 
 // Variable declaration and assignment: builder = WebApplication.CreateBuilder(args)
 var builder = WebApplication.CreateBuilder(args);
-// Empty line
 
 // Existing comment: Add services to the container.
 // Add services to the container.
@@ -32,7 +30,6 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 // Execute line: builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen();
-// Empty line
 
 // Existing comment: Configure EF Core with Pomelo MySQL
 // Configure EF Core with Pomelo MySQL
@@ -42,7 +39,6 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<OopdexDbContext>(options =>
     // Execute line: options.UseMySql(connectionString, ServerVersion.AutoDete...
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-// Empty line
 
 // Existing comment: Configure DI for Services
 // Configure DI for Services
@@ -54,7 +50,6 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IPokemonService, PokemonService>();
 // Execute line: builder.Services.AddScoped<ICaughtPokemonService, CaughtP...
 builder.Services.AddScoped<ICaughtPokemonService, CaughtPokemonService>();
-// Empty line
 
 // Existing comment: Configure JWT Authentication
 // Configure JWT Authentication
@@ -62,7 +57,6 @@ builder.Services.AddScoped<ICaughtPokemonService, CaughtPokemonService>();
 var jwtSecret = builder.Configuration["Jwt:Secret"];
 // Variable declaration and assignment: key = Encoding.UTF8.GetBytes(jwtSecret)
 var key = Encoding.UTF8.GetBytes(jwtSecret);
-// Empty line
 
 // Execute line: builder.Services.AddAuthentication(JwtBearerDefaults.Auth...
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -98,7 +92,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     // Execute line: });
     });
-// Empty line
 
 // Existing comment: Configure CORS
 // Configure CORS
@@ -120,11 +113,9 @@ builder.Services.AddCors(options =>
     });
 // Execute line: });
 });
-// Empty line
 
 // Variable declaration and assignment: app = builder.Build()
 var app = builder.Build();
-// Empty line
 
 // Existing comment: Configure the HTTP request pipeline.
 // Configure the HTTP request pipeline.
@@ -138,11 +129,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 // End of block scope
 }
-// Empty line
 
 // Execute line: app.UseCors("AllowAll");
 app.UseCors("AllowAll");
-// Empty line
 
 // Existing comment: Serve static files for the uploads folder
 // Serve static files for the uploads folder
@@ -166,23 +155,19 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/uploads"
 // Execute line: });
 });
-// Empty line
 
 // Existing comment: Use default static files for assets if needed
 // Use default static files for assets if needed
 // Execute line: app.UseStaticFiles();
 app.UseStaticFiles();
-// Empty line
 
 // Execute line: app.UseAuthentication();
 app.UseAuthentication();
 // Execute line: app.UseAuthorization();
 app.UseAuthorization();
-// Empty line
 
 // Execute line: app.MapControllers();
 app.MapControllers();
-// Empty line
 
 // Execute line: app.Run();
 app.Run();

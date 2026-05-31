@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Oopdex.Api.Data;
 // Import namespace: Oopdex.Api.Models
 using Oopdex.Api.Models;
-// Empty line
 
 // Define namespace: Oopdex.Api.Services
 namespace Oopdex.Api.Services
@@ -32,7 +31,6 @@ namespace Oopdex.Api.Services
         Task<bool> ReleasePokemonAsync(long userId, long caughtPokemonId);
     // End of block scope
     }
-// Empty line
 
     // Define class CaughtPokemonService inheriting/implementing ICaughtPokemonService
     public class CaughtPokemonService : ICaughtPokemonService
@@ -40,7 +38,6 @@ namespace Oopdex.Api.Services
     {
         // Execute line: private readonly OopdexDbContext _context;
         private readonly OopdexDbContext _context;
-// Empty line
 
         // Constructor for class: CaughtPokemonService (Params: OopdexDbContext context)
         public CaughtPokemonService(OopdexDbContext context)
@@ -50,7 +47,6 @@ namespace Oopdex.Api.Services
             _context = context;
         // End of block scope
         }
-// Empty line
 
         // Define method: GetCaughtPokemonsByUserIdAsync (Returns: Task<IEnumerable<CaughtPokemon>>, Params: long userId)
         public async Task<IEnumerable<CaughtPokemon>> GetCaughtPokemonsByUserIdAsync(long userId)
@@ -66,7 +62,6 @@ namespace Oopdex.Api.Services
                 .ToListAsync();
         // End of block scope
         }
-// Empty line
 
         // Define method: CatchPokemonAsync (Returns: Task<CaughtPokemon>, Params: long userId, int pokemonId, string nickname)
         public async Task<CaughtPokemon> CatchPokemonAsync(long userId, int pokemonId, string nickname)
@@ -76,39 +71,24 @@ namespace Oopdex.Api.Services
             if (await _context.CaughtPokemons.AnyAsync(c => c.UserId == userId && c.PokemonId == pokemonId))
                 // Execute line: throw new Exception("You have already caught this Pokemon...
                 throw new Exception("You have already caught this Pokemon.");
-// Empty line
 
             // Control Flow: check condition 'if (!await _context.Pokemons.AnyAsync(p => p.Id == pokemonId && !p.IsDeleted))'
             if (!await _context.Pokemons.AnyAsync(p => p.Id == pokemonId && !p.IsDeleted))
                 // Execute line: throw new Exception("Pokemon not found.");
                 throw new Exception("Pokemon not found.");
-// Empty line
 
-            // Execute line: var caught = new CaughtPokemon
             var caught = new CaughtPokemon
-            // Start of block scope
             {
-                // Execute line: UserId = userId,
                 UserId = userId,
-                // Execute line: PokemonId = pokemonId,
                 PokemonId = pokemonId,
-                // Execute line: Nickname = nickname,
                 Nickname = nickname,
-                // Execute line: Level = 1,
-                Level = 1,
-                // Execute line: Experience = 0,
-                Experience = 0,
-                // Execute line: DateCaught = DateTime.Now
                 DateCaught = DateTime.Now
-            // Execute line: };
             };
-// Empty line
 
             // Execute line: _context.CaughtPokemons.Add(caught);
             _context.CaughtPokemons.Add(caught);
             // Execute line: await _context.SaveChangesAsync();
             await _context.SaveChangesAsync();
-// Empty line
 
             // Existing comment: Reload with navigation property
             // Reload with navigation property
@@ -118,7 +98,6 @@ namespace Oopdex.Api.Services
             return caught;
         // End of block scope
         }
-// Empty line
 
         // Define method: UpdateCaughtPokemonAsync (Returns: Task<CaughtPokemon>, Params: long userId, long caughtPokemonId, string nickname)
         public async Task<CaughtPokemon> UpdateCaughtPokemonAsync(long userId, long caughtPokemonId, string nickname)
@@ -128,7 +107,6 @@ namespace Oopdex.Api.Services
             var caught = await _context.CaughtPokemons.FirstOrDefaultAsync(c => c.Id == caughtPokemonId && c.UserId == userId);
             // Control Flow: check condition 'if (caught == null) return null;'
             if (caught == null) return null;
-// Empty line
 
             // Execute line: caught.Nickname = nickname;
             caught.Nickname = nickname;
@@ -138,7 +116,6 @@ namespace Oopdex.Api.Services
             return caught;
         // End of block scope
         }
-// Empty line
 
         // Define method: ReleasePokemonAsync (Returns: Task<bool>, Params: long userId, long caughtPokemonId)
         public async Task<bool> ReleasePokemonAsync(long userId, long caughtPokemonId)
@@ -148,7 +125,6 @@ namespace Oopdex.Api.Services
             var caught = await _context.CaughtPokemons.FirstOrDefaultAsync(c => c.Id == caughtPokemonId && c.UserId == userId);
             // Control Flow: check condition 'if (caught == null) return false;'
             if (caught == null) return false;
-// Empty line
 
             // Execute line: _context.CaughtPokemons.Remove(caught);
             _context.CaughtPokemons.Remove(caught);

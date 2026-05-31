@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Oopdex.Api.DTOs;
 // Import namespace: Oopdex.Api.Services
 using Oopdex.Api.Services;
-// Empty line
 
 // Define namespace: Oopdex.Api.Controllers
 namespace Oopdex.Api.Controllers
@@ -26,7 +25,6 @@ namespace Oopdex.Api.Controllers
         private readonly IUserService _userService;
         // Execute line: private readonly IJwtTokenService _jwtTokenService;
         private readonly IJwtTokenService _jwtTokenService;
-// Empty line
 
         // Constructor for class: AuthController (Params: IUserService userService, IJwtTokenService jwtTokenService)
         public AuthController(IUserService userService, IJwtTokenService jwtTokenService)
@@ -38,7 +36,6 @@ namespace Oopdex.Api.Controllers
             _jwtTokenService = jwtTokenService;
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpPost("register")]
         [HttpPost("register")]
@@ -66,7 +63,6 @@ namespace Oopdex.Api.Controllers
             }
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpPost("login")]
         [HttpPost("login")]
@@ -84,7 +80,6 @@ namespace Oopdex.Api.Controllers
                 return Unauthorized(new { error = "Invalid credentials" });
             // End of block scope
             }
-// Empty line
 
             // Variable declaration and assignment: token = _jwtTokenService.GenerateToken(user)
             var token = _jwtTokenService.GenerateToken(user);

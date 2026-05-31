@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 // Import namespace: Oopdex.Api.Models
 using Oopdex.Api.Models;
-// Empty line
 
 // Define namespace: Oopdex.Api.Data
 namespace Oopdex.Api.Data
@@ -18,7 +17,6 @@ namespace Oopdex.Api.Data
         {
         // End of block scope
         }
-// Empty line
 
         // Property: Users (Type: DbSet<User>)
         public DbSet<User> Users { get; set; }
@@ -26,7 +24,6 @@ namespace Oopdex.Api.Data
         public DbSet<Pokemon> Pokemons { get; set; }
         // Property: CaughtPokemons (Type: DbSet<CaughtPokemon>)
         public DbSet<CaughtPokemon> CaughtPokemons { get; set; }
-// Empty line
 
         // Define method: OnModelCreating (Returns: void, Params: ModelBuilder modelBuilder)
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,7 +31,6 @@ namespace Oopdex.Api.Data
         {
             // Execute line: base.OnModelCreating(modelBuilder);
             base.OnModelCreating(modelBuilder);
-// Empty line
 
             // Execute line: modelBuilder.Entity<User>(entity =>
             modelBuilder.Entity<User>(entity =>
@@ -46,7 +42,6 @@ namespace Oopdex.Api.Data
                 entity.HasIndex(e => e.Email).IsUnique();
             // Execute line: });
             });
-// Empty line
 
             // Execute line: modelBuilder.Entity<CaughtPokemon>(entity =>
             modelBuilder.Entity<CaughtPokemon>(entity =>

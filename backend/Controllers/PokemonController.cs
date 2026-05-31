@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Mvc;
 using Oopdex.Api.DTOs;
 // Import namespace: Oopdex.Api.Services
 using Oopdex.Api.Services;
-// Empty line
 
 // Define namespace: Oopdex.Api.Controllers
 namespace Oopdex.Api.Controllers
@@ -30,7 +29,6 @@ namespace Oopdex.Api.Controllers
         private readonly IPokemonService _pokemonService;
         // Execute line: private readonly ICaughtPokemonService _caughtPokemonServ...
         private readonly ICaughtPokemonService _caughtPokemonService;
-// Empty line
 
         // Constructor for class: PokemonController (Params: IPokemonService pokemonService, ICaughtPokemonService caughtPokemonService)
         public PokemonController(IPokemonService pokemonService, ICaughtPokemonService caughtPokemonService)
@@ -42,7 +40,6 @@ namespace Oopdex.Api.Controllers
             _caughtPokemonService = caughtPokemonService;
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpGet]
         [HttpGet]
@@ -56,7 +53,6 @@ namespace Oopdex.Api.Controllers
             return Ok(pokemons);
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpGet("{id}")]
         [HttpGet("{id}")]
@@ -72,7 +68,6 @@ namespace Oopdex.Api.Controllers
             return Ok(pokemon);
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpGet("search")]
         [HttpGet("search")]
@@ -86,7 +81,6 @@ namespace Oopdex.Api.Controllers
             return Ok(pokemons);
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpGet("my-collection")]
         [HttpGet("my-collection")]
@@ -100,7 +94,6 @@ namespace Oopdex.Api.Controllers
             var userIdStr = User.FindFirstValue("userId");
             // Control Flow: check condition 'if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();'
             if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();
-// Empty line
 
             // Variable declaration and assignment: collection = await _caughtPokemonService.GetCaughtPokemonsByUserIdAsync(userId)
             var collection = await _caughtPokemonService.GetCaughtPokemonsByUserIdAsync(userId);
@@ -108,7 +101,6 @@ namespace Oopdex.Api.Controllers
             return Ok(collection);
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpPost("catch")]
         [HttpPost("catch")]
@@ -126,7 +118,6 @@ namespace Oopdex.Api.Controllers
                 var userIdStr = User.FindFirstValue("userId");
                 // Control Flow: check condition 'if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();'
                 if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();
-// Empty line
 
                 // Variable declaration and assignment: caught = await _caughtPokemonService.CatchPokemonAsync(userId, request.PokemonId, request.Nickname)
                 var caught = await _caughtPokemonService.CatchPokemonAsync(userId, request.PokemonId, request.Nickname);
@@ -152,7 +143,6 @@ namespace Oopdex.Api.Controllers
             }
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpPut("caught/{id}")]
         [HttpPut("caught/{id}")]
@@ -166,19 +156,16 @@ namespace Oopdex.Api.Controllers
             var userIdStr = User.FindFirstValue("userId");
             // Control Flow: check condition 'if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();'
             if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();
-// Empty line
 
             // Variable declaration and assignment: caught = await _caughtPokemonService.UpdateCaughtPokemonAsync(userId, id, request.Nickname)
             var caught = await _caughtPokemonService.UpdateCaughtPokemonAsync(userId, id, request.Nickname);
             // Control Flow: check condition 'if (caught == null) return NotFound(new { error = "Caught Pokemon not found" });'
             if (caught == null) return NotFound(new { error = "Caught Pokemon not found" });
-// Empty line
 
             // Return statement: return Ok(caught);
             return Ok(caught);
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpDelete("release/{id}")]
         [HttpDelete("release/{id}")]
@@ -192,19 +179,16 @@ namespace Oopdex.Api.Controllers
             var userIdStr = User.FindFirstValue("userId");
             // Control Flow: check condition 'if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();'
             if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();
-// Empty line
 
             // Variable declaration and assignment: success = await _caughtPokemonService.ReleasePokemonAsync(userId, id)
             var success = await _caughtPokemonService.ReleasePokemonAsync(userId, id);
             // Control Flow: check condition 'if (!success) return NotFound(new { error = "Caught Pokemon not found" });'
             if (!success) return NotFound(new { error = "Caught Pokemon not found" });
-// Empty line
 
             // Return statement: return NoContent();
             return NoContent();
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpDelete("caught/{id}")]
         [HttpDelete("caught/{id}")]
@@ -218,13 +202,11 @@ namespace Oopdex.Api.Controllers
             var userIdStr = User.FindFirstValue("userId");
             // Control Flow: check condition 'if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();'
             if (!long.TryParse(userIdStr, out var userId)) return Unauthorized();
-// Empty line
 
             // Variable declaration and assignment: success = await _caughtPokemonService.ReleasePokemonAsync(userId, id)
             var success = await _caughtPokemonService.ReleasePokemonAsync(userId, id);
             // Control Flow: check condition 'if (!success) return NotFound(new { error = "Caught Pokemon not found" });'
             if (!success) return NotFound(new { error = "Caught Pokemon not found" });
-// Empty line
 
             // Return statement: return NoContent();
             return NoContent();

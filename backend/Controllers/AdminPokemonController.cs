@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Oopdex.Api.Models;
 // Import namespace: Oopdex.Api.Services
 using Oopdex.Api.Services;
-// Empty line
 
 // Define namespace: Oopdex.Api.Controllers
 namespace Oopdex.Api.Controllers
@@ -26,7 +25,6 @@ namespace Oopdex.Api.Controllers
     {
         // Execute line: private readonly IPokemonService _pokemonService;
         private readonly IPokemonService _pokemonService;
-// Empty line
 
         // Constructor for class: AdminPokemonController (Params: IPokemonService pokemonService)
         public AdminPokemonController(IPokemonService pokemonService)
@@ -36,7 +34,6 @@ namespace Oopdex.Api.Controllers
             _pokemonService = pokemonService;
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpPost]
         [HttpPost]
@@ -64,7 +61,6 @@ namespace Oopdex.Api.Controllers
             }
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpPut("{id}")]
         [HttpPut("{id}")]
@@ -80,7 +76,6 @@ namespace Oopdex.Api.Controllers
             return Ok(updated);
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpDelete("{id}")]
         [HttpDelete("{id}")]
@@ -96,7 +91,6 @@ namespace Oopdex.Api.Controllers
             return NoContent();
         // End of block scope
         }
-// Empty line
 
         // Attribute annotation: [HttpGet("deleted")]
         [HttpGet("deleted")]
@@ -110,7 +104,6 @@ namespace Oopdex.Api.Controllers
             return Ok(pokemons);
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpPost("{id}/restore")]
         [HttpPost("{id}/restore")]
@@ -126,7 +119,6 @@ namespace Oopdex.Api.Controllers
             return Ok(new { message = "Pokemon restored successfully" });
         // End of block scope
         }
-// Empty line
 
         // Execute line: [HttpDelete("{id}/permanent")]
         [HttpDelete("{id}/permanent")]

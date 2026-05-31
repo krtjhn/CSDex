@@ -10,7 +10,6 @@ using Microsoft.EntityFrameworkCore;
 using Oopdex.Api.Data;
 // Import namespace: Oopdex.Api.Models
 using Oopdex.Api.Models;
-// Empty line
 
 // Define namespace: Oopdex.Api.Services
 namespace Oopdex.Api.Services
@@ -40,7 +39,6 @@ namespace Oopdex.Api.Services
         Task<bool> PermanentDeletePokemonAsync(int id);
     // End of block scope
     }
-// Empty line
 
     // Define class PokemonService inheriting/implementing IPokemonService
     public class PokemonService : IPokemonService
@@ -48,7 +46,6 @@ namespace Oopdex.Api.Services
     {
         // Execute line: private readonly OopdexDbContext _context;
         private readonly OopdexDbContext _context;
-// Empty line
 
         // Constructor for class: PokemonService (Params: OopdexDbContext context)
         public PokemonService(OopdexDbContext context)
@@ -58,7 +55,6 @@ namespace Oopdex.Api.Services
             _context = context;
         // End of block scope
         }
-// Empty line
 
         // Define method: GetAllPokemonsAsync (Returns: Task<IEnumerable<Pokemon>>, Params: int page = 0, int size = 1000, string sort = "id", string direction = "asc")
         public async Task<IEnumerable<Pokemon>> GetAllPokemonsAsync(int page = 0, int size = 1000, string sort = "id", string direction = "asc")
@@ -66,7 +62,6 @@ namespace Oopdex.Api.Services
         {
             // Variable declaration and assignment: query = _context.Pokemons.Where(p => !p.IsDeleted)
             var query = _context.Pokemons.Where(p => !p.IsDeleted);
-// Empty line
 
             // Execute line: query = sort.ToLower() switch
             query = sort.ToLower() switch
@@ -80,13 +75,11 @@ namespace Oopdex.Api.Services
                 _ => direction.ToLower() == "desc" ? query.OrderByDescending(p => p.Id) : query.OrderBy(p => p.Id)
             // Execute line: };
             };
-// Empty line
 
             // Return statement: return await query.Skip(page * size).Take(size).ToListAsync();
             return await query.Skip(page * size).Take(size).ToListAsync();
         // End of block scope
         }
-// Empty line
 
         // Define method: GetPokemonByIdAsync (Returns: Task<Pokemon>, Params: int id)
         public async Task<Pokemon> GetPokemonByIdAsync(int id)
@@ -96,7 +89,6 @@ namespace Oopdex.Api.Services
             return await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
         // End of block scope
         }
-// Empty line
 
         // Define method: CreatePokemonAsync (Returns: Task<Pokemon>, Params: Pokemon pokemon)
         public async Task<Pokemon> CreatePokemonAsync(Pokemon pokemon)
@@ -106,7 +98,6 @@ namespace Oopdex.Api.Services
             if (await _context.Pokemons.AnyAsync(p => p.Id == pokemon.Id))
                 // Execute line: throw new System.Exception("Pokemon with this ID already ...
                 throw new System.Exception("Pokemon with this ID already exists.");
-// Empty line
 
             // Execute line: _context.Pokemons.Add(pokemon);
             _context.Pokemons.Add(pokemon);
@@ -116,7 +107,6 @@ namespace Oopdex.Api.Services
             return pokemon;
         // End of block scope
         }
-// Empty line
 
         // Define method: UpdatePokemonAsync (Returns: Task<Pokemon>, Params: int id, Pokemon pokemonUpdate)
         public async Task<Pokemon> UpdatePokemonAsync(int id, Pokemon pokemonUpdate)
@@ -126,7 +116,6 @@ namespace Oopdex.Api.Services
             var pokemon = await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
             // Control Flow: check condition 'if (pokemon == null) return null;'
             if (pokemon == null) return null;
-// Empty line
 
             // Execute line: pokemon.Name = pokemonUpdate.Name;
             pokemon.Name = pokemonUpdate.Name;
@@ -152,7 +141,6 @@ namespace Oopdex.Api.Services
             pokemon.SpecialDefense = pokemonUpdate.SpecialDefense;
             // Execute line: pokemon.Speed = pokemonUpdate.Speed;
             pokemon.Speed = pokemonUpdate.Speed;
-// Empty line
 
             // Execute line: await _context.SaveChangesAsync();
             await _context.SaveChangesAsync();
@@ -160,7 +148,6 @@ namespace Oopdex.Api.Services
             return pokemon;
         // End of block scope
         }
-// Empty line
 
         // Define method: DeletePokemonAsync (Returns: Task<bool>, Params: int id)
         public async Task<bool> DeletePokemonAsync(int id)
@@ -170,7 +157,6 @@ namespace Oopdex.Api.Services
             var pokemon = await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id && !p.IsDeleted);
             // Control Flow: check condition 'if (pokemon == null) return false;'
             if (pokemon == null) return false;
-// Empty line
 
             // Execute line: pokemon.IsDeleted = true;
             pokemon.IsDeleted = true;
@@ -180,7 +166,6 @@ namespace Oopdex.Api.Services
             return true;
         // End of block scope
         }
-// Empty line
 
         // Define method: SearchPokemonsAsync (Returns: Task<IEnumerable<Pokemon>>, Params: string query)
         public async Task<IEnumerable<Pokemon>> SearchPokemonsAsync(string query)
@@ -190,7 +175,6 @@ namespace Oopdex.Api.Services
             if (string.IsNullOrWhiteSpace(query))
                 // Return statement: return await GetAllPokemonsAsync();
                 return await GetAllPokemonsAsync();
-// Empty line
 
             // Execute line: query = query.ToLower();
             query = query.ToLower();
@@ -202,7 +186,6 @@ namespace Oopdex.Api.Services
                 .ToListAsync();
         // End of block scope
         }
-// Empty line
 
         // Define method: GetDeletedPokemonsAsync (Returns: Task<IEnumerable<Pokemon>>, Params: )
         public async Task<IEnumerable<Pokemon>> GetDeletedPokemonsAsync()
@@ -218,7 +201,6 @@ namespace Oopdex.Api.Services
                 .ToListAsync();
         // End of block scope
         }
-// Empty line
 
         // Define method: RestorePokemonAsync (Returns: Task<bool>, Params: int id)
         public async Task<bool> RestorePokemonAsync(int id)
@@ -228,7 +210,6 @@ namespace Oopdex.Api.Services
             var pokemon = await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id && p.IsDeleted);
             // Control Flow: check condition 'if (pokemon == null) return false;'
             if (pokemon == null) return false;
-// Empty line
 
             // Execute line: pokemon.IsDeleted = false;
             pokemon.IsDeleted = false;
@@ -238,7 +219,6 @@ namespace Oopdex.Api.Services
             return true;
         // End of block scope
         }
-// Empty line
 
         // Define method: PermanentDeletePokemonAsync (Returns: Task<bool>, Params: int id)
         public async Task<bool> PermanentDeletePokemonAsync(int id)
@@ -248,7 +228,6 @@ namespace Oopdex.Api.Services
             var pokemon = await _context.Pokemons.FirstOrDefaultAsync(p => p.Id == id);
             // Control Flow: check condition 'if (pokemon == null) return false;'
             if (pokemon == null) return false;
-// Empty line
 
             // Execute line: _context.Pokemons.Remove(pokemon);
             _context.Pokemons.Remove(pokemon);
